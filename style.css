@@ -11,9 +11,22 @@ html {
     padding: 0;
 }
 body {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #container {
-    
+    display: flex;
+    flex-wrap: wrap;
+    width: 1600px;
+    height: 1600px;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: aqua;
 }
