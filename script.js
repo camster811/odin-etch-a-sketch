@@ -3,8 +3,11 @@ const edit = document.querySelector("button");
 let newGrid = 16;
 
 
+
 for (let i = 0; i < 256; i++) {
+    let brightness = 100;
     let div = document.createElement('div');
+
     div.style.border = "solid";
     div.style.borderWidth = "1px";
     div.style.width = "100px";
@@ -12,7 +15,9 @@ for (let i = 0; i < 256; i++) {
     container.appendChild(div)
 
     div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = "yellow";
+        brightness -= 10;
+        div.style.backgroundColor = getRandomRgb();
+        div.style.filter = `brightness(${brightness}%)`;
     });
 }
 
@@ -38,7 +43,15 @@ function createNewGrid(gridSize) {
         container.appendChild(div)
     
         div.addEventListener('mouseover', () => {
-            div.style.backgroundColor = "yellow";
+            div.style.backgroundColor = getRandomRgb();
         });
     }
 }
+
+function getRandomRgb() {
+    var num = Math.round(0xffffff * Math.random());
+    var r = num >> 16;
+    var g = num >> 8 & 255;
+    var b = num & 255;
+    return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+  }
