@@ -12,4 +12,9 @@ for (let i = 0; i < 256; i++) {
     div.style.width = "100px";
     div.style.height = "100px";
     container.appendChild(div)
+
+    div.addEventListener('mouseover', () => {
+        div.style.backgroundColor = "yellow";
+    });
 }
+
