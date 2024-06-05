@@ -33,6 +33,7 @@ function createNewGrid(gridSize) {
     container.innerHTML = '';
 
     for (let i = 0; i < (gridSize*gridSize); i++) {
+        let brightness = 100;
         let div = document.createElement('div');
         let divSize = 1600/gridSize;
 
@@ -43,7 +44,9 @@ function createNewGrid(gridSize) {
         container.appendChild(div)
     
         div.addEventListener('mouseover', () => {
+            brightness -= 10;
             div.style.backgroundColor = getRandomRgb();
+            div.style.filter = `brightness(${brightness}%)`;
         });
     }
 }
